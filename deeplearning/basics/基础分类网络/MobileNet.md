@@ -242,3 +242,5 @@ ResNet的基本范式是Residual block。
 [MobileNet V2 论文初读](https://zhuanlan.zhihu.com/p/33075914)
 
 [如何评价mobilenet v2 ?](https://www.zhihu.com/question/265709710)
+
+[如何评价google Searching for MobileNetV3？](https://www.zhihu.com/question/323419310)

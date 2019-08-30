@@ -1,7 +1,7 @@
 # DeepLab-v3+
 
 
-__paper__ : [link]()
+__paper__ : [link](http://xxx.itp.ac.cn/abs/1802.02611)
 __Performance__ : 89.0%mIOU on PASCAL VOC2012 better than deeplab-v2 with 85.7% mIOU
 
 

@@ -56,7 +56,7 @@ J = \sum_{i=1}^m L(y_i, F(x_i))
 $$
 由于我们已经有了模型$F$，所以$F(x_1), F(x_2), \cdots, F(x_m)$都是数字，从而可以把$F(x_i)$看做是参数?，并且进行求导：
 $$
-\frac{\partial J}{ \partial F(x_i))} = \frac{\partial \sum_{i=1}^m L(y_i, F(x_i))}{\partial F(x_i)} = \frac{\partial L(y_i, F(x_i))}{\partial F(x_i)} = \frac{\partial \frac{1}{2}(y - F(x))^2} {\partial F(x_i)} = F(x_i) - y_i
+\frac{\partial J}{ \partial F(x_i))} = \frac{\partial \sum_{i=1}^m L(y_i, F(x_i))}{\partial F(x_i)} = \frac{\partial L(y_i, F(x_i))}{\partial F(x_i)} = \frac{\partial \frac{1}{2}(y_i - F(x_i))^2} {\partial F(x_i)} = F(x_i) - y_i
 $$
 > 或者直接就认为是一个函数（可以优化的东西），而损失函数是函数的函数（泛函），而损失函数对$F(x_i)$求导表示函数$F$在数据点$x_i$这点处的函数值该如何变化才能够降低损失（沿着负梯度方向更新），所以该$x_i$这点处的函数值应该变成$F(x_i) + (y_i - F(x_i))$会使得损失函数下降。
 
@@ -86,7 +86,7 @@ __所以拟合残差本质上是拟合负梯度，只不过在损失函数是平
 
 如果使用平方损失函数，那么GBDT算法的流程是这样子的：
 
-1. 第一CART棵为$F(x) =\frac{1}{m} \sum_{i=1}^m y _i$；
+1. 第一棵CART为$F(x) =\frac{1}{m} \sum_{i=1}^m y _i$；
 2. 计算每个数据$(x_i, y_i)$在已有树组合之后的模型上的负梯度，$-g(x_i) = -\frac{\partial L(y_i, F(x_i))}{\partial F(x_i)} = y_i - F(x_i)$；
 3. 在新的数据$\{(x_i, -g(x_i))\}$上拟合出新的CART树$h$，从而得到新的组合模型$F : = F + \rho h, \ \rho = 1$；
 4. 重复第2，3步直到收敛。
